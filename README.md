@@ -12,3 +12,4 @@ Needed to run scripts:
 3. Rmarkdown file with commented code, reqires RStudio (tidyverse-tutorial.Rmd)
 4. PDF output of Rmarkdown
 5. Plain R code, has not been debugged since adapting from .Rmd file -- proceed with caution! (USE_W_CAUTION_R-tutorial-version.R)
+6. Old tutorial from 2019, has other plot examples and different info ()
