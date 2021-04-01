@@ -1,0 +1,1062 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={R Notebook},
+  pdfauthor={Kelly Morrow (kmorrow@umd.edu)},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{R Notebook}
+\author{Kelly Morrow
+(\href{mailto:kmorrow@umd.edu}{\nolinkurl{kmorrow@umd.edu}})}
+\date{}
+
+\begin{document}
+\maketitle
+
+\hypertarget{intro-to-data-wrangling-and-plotting-in-r-tidyverse}{%
+\subsubsection{Intro to data-wrangling and plotting in R
+tidyverse}\label{intro-to-data-wrangling-and-plotting-in-r-tidyverse}}
+
+\hypertarget{goals-of-this-tutorial}{%
+\paragraph{Goals of this tutorial:}\label{goals-of-this-tutorial}}
+
+\begin{itemize}
+\tightlist
+\item
+  Get a basic grasp of popular R libraries to wrangle data
+\item
+  Quickly create nice plots from said data
+\item
+  Give examples to apply to your own data
+\end{itemize}
+
+\hypertarget{resources}{%
+\paragraph{Resources}\label{resources}}
+
+\begin{itemize}
+\item
+  Accompanying PowerPoint presentation
+\item
+  List of links to cool pages for inspiration and learning
+\item
+  Dataset used in this tutorial so that you're able to run the code
+  yourself
+\end{itemize}
+
+The first thing we'll do is import libraries we need for analysis. Basic
+R is OK for plotting but is slow and potentially really frustrating when
+data wrangling\ldots{} And that's frustrating to begin with!
+
+\hypertarget{tidyverse}{%
+\paragraph{Tidyverse}\label{tidyverse}}
+
+Tidyverse is a suit of packages created for data science. You could
+import the packages included separately (will take less time to load),
+but I am generally just lazy enough to import tidyverse.~
+
+More
+information:~\href{https://www.tidyverse.org/}{\textless https://www.tidyverse.org\textgreater{}}
+
+We'll be utilizing:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \href{https://dplyr.tidyverse.org/}{dplyr}
+\item
+  \href{https://ggplot2.tidyverse.org/}{ggplot2}
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# if running on your own machine that does not have tidyverse installed, uncomment and run the following line. Otherwise no need.}
+
+\CommentTok{\#install.packages(\textquotesingle{}tidyverse\textquotesingle{})}
+\CommentTok{\#install.package(\textquotesingle{}viridis\textquotesingle{})         \# cool color schemes that are color{-}blind compatible}
+
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching packages --------------------------------------- tidyverse 1.3.0 --
+\end{verbatim}
+
+\begin{verbatim}
+## v ggplot2 3.3.3     v purrr   0.3.4
+## v tibble  3.1.0     v dplyr   1.0.4
+## v tidyr   1.1.2     v stringr 1.4.0
+## v readr   1.4.0     v forcats 0.5.1
+\end{verbatim}
+
+\begin{verbatim}
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(viridis)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: viridisLite
+\end{verbatim}
+
+\hypertarget{importing-data}{%
+\paragraph{Importing data}\label{importing-data}}
+
+R will import nearly any type of data file, but it's important to know
+the faults and nuances of your dataframe before attempting (e.g., Do you
+have missing data? How are they marked? Do you have numerical values?
+Characters? Both?)
+
+Today we'll import a .CSV file using
+\texttt{read.delim()}\textsuperscript{1} to a variable called
+\textbf{df.}
+
+\textsubscript{1~You~can~use~\texttt{read.table()}~to~import~other~datasets,~but~read.delim()~makes~assumptions~about~the~file~(e.g.,~it's~common~delimited\ldots)~that~makes~it~a~quicker~import.~Text~files~should~be~imported~with~read.table().}
+
+We see that there are some missing values in this table (Charmander is
+only Fire type, duh\ldots), so we should replace these missing values
+with N/A so that they're easy to ignore and don't get lost in the
+shuffle.
+
+We can raise the na.strings argument.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{read.delim}\NormalTok{(}\StringTok{"Pokemon.csv"}\NormalTok{,                  }\CommentTok{\# if data is located in another directory, you need to specify the path here. }
+                   \AttributeTok{sep =} \StringTok{","}\NormalTok{,                    }\CommentTok{\# tell R cells are separated by commas}
+                   \AttributeTok{na.strings =} \FunctionTok{c}\NormalTok{(}\StringTok{""}\NormalTok{, }\StringTok{"NA"}\NormalTok{),     }\CommentTok{\# fill missing values with "NA" character}
+                   \AttributeTok{stringsAsFactors =}\NormalTok{ F)         }\CommentTok{\# do not automatically make variables factors}
+
+
+\FunctionTok{head}\NormalTok{(df)                                         }\CommentTok{\# look at first 6 rows of the dataframe}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   X.                  Name Type.1 Type.2 HP Attack Defense Sp..Atk Sp..Def
+## 1  1             Bulbasaur  Grass Poison 45     49      49      65      65
+## 2  2               Ivysaur  Grass Poison 60     62      63      80      80
+## 3  3              Venusaur  Grass Poison 80     82      83     100     100
+## 4  3 VenusaurMega Venusaur  Grass Poison 80    100     123     122     120
+## 5  4            Charmander   Fire   <NA> 39     52      43      60      50
+## 6  5            Charmeleon   Fire   <NA> 58     64      58      80      65
+##   Speed Generation Legendary
+## 1    45          1     FALSE
+## 2    60          1     FALSE
+## 3    80          1     FALSE
+## 4    80          1     FALSE
+## 5    65          1     FALSE
+## 6    80          1     FALSE
+\end{verbatim}
+
+Better! Now we can easily ignore these cells.
+
+\hypertarget{dplyr}{%
+\subsubsection{Dplyr}\label{dplyr}}
+
+\texttt{dplyr} uses a variety of verbs and pipes
+(\texttt{\%\textgreater{}\%}) to transform your data.
+
+\textbf{What is a pipe?}
+
+\begin{itemize}
+\item
+  Think of a pipe as saying ``and then'' between command lines.
+\item
+  This allows you to string multiple verbs together to get your ideal
+  end product
+\item
+  Quicker than utilizing \texttt{for} and \texttt{if/else} loops
+\end{itemize}
+
+\hypertarget{dplyr-verbs-to-remember}{%
+\paragraph{Dplyr verbs to remember}\label{dplyr-verbs-to-remember}}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+term & description \\
+\midrule
+\endhead
+\texttt{select()} & select specific columns in dataframe \\
+\texttt{filter()} & filter rows of specific values \\
+\texttt{arrange()} & re-order dataframe based on a row \\
+\texttt{mutate()} & create a new column \\
+\texttt{summarise()} & summarize column values \\
+\texttt{group\_by()} & allow for group operations \\
+\bottomrule
+\end{longtable}
+
+\hypertarget{using-dplyr-to-get-summary-statistics}{%
+\subsubsection{Using dplyr to get summary
+statistics}\label{using-dplyr-to-get-summary-statistics}}
+
+dplyr follows a particular formatting where the dataframe is first
+specified, followed by a pipe, followed by whatever transformations you
+would like to make.
+
+\texttt{df\ \%\textgreater{}\%\ transformation()}
+
+To save our changes to a variable, we just assign it to value as we did
+initially
+
+\texttt{df.cool\ \textless{}-\ df\ \%\textgreater{}\%\ transformation()}
+
+\hypertarget{lets-say-we-were-interested-in-summarizing-how-attack-stats-differ-between-pokemon-types-but-only-for-generation-1.}{%
+\paragraph{Let's say we were interested in summarizing how Attack stats
+differ between Pokemon types, but only for Generation
+1.}\label{lets-say-we-were-interested-in-summarizing-how-attack-stats-differ-between-pokemon-types-but-only-for-generation-1.}}
+
+Steps:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Select columns wanted to perform actions (optional, just makes things
+  neater)
+\item
+  Filter rows where Generation value equals 1
+\item
+  Group by the Type.1 variable
+\item
+  Calculate the number of Pokemon within each Type, their mean Attack,
+  and standard deviation Attack
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{summary }\OtherTok{\textless{}{-}}\NormalTok{  df }\SpecialCharTok{\%\textgreater{}\%}                          \CommentTok{\# assign our Attack stats to a new dataframe}
+  
+            \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{X.) }\SpecialCharTok{\%\textgreater{}\%}                 \CommentTok{\# select all columns EXCEPT X.}
+  
+            \FunctionTok{filter}\NormalTok{(Generation }\SpecialCharTok{==} \DecValTok{1}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}     \CommentTok{\# only select Pokemon in Gen. 1}
+  
+            \FunctionTok{group\_by}\NormalTok{(Type}\FloatTok{.1}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}            \CommentTok{\# Group Pokemon by their Type to create averages}
+  
+            \FunctionTok{summarize}\NormalTok{(}\AttributeTok{n =} \FunctionTok{n}\NormalTok{(),              }\CommentTok{\# Create a summary table that includes a count}
+              \AttributeTok{mean.Attack =} \FunctionTok{mean}\NormalTok{(Attack),          }\CommentTok{\# mean}
+              \AttributeTok{sd.Attack =} \FunctionTok{sd}\NormalTok{(Attack))              }\CommentTok{\# and standard deviation}
+
+\NormalTok{summary}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 15 x 4
+##    Type.1       n mean.Attack sd.Attack
+##  * <chr>    <int>       <dbl>     <dbl>
+##  1 Bug         14        76.4      45.5
+##  2 Dragon       3        94        36.1
+##  3 Electric     9        62        22.3
+##  4 Fairy        2        57.5      17.7
+##  5 Fighting     7       103.       18.7
+##  6 Fire        14        88.6      26.6
+##  7 Ghost        4        53.8      14.4
+##  8 Grass       13        72.9      21.1
+##  9 Ground       8        81.9      25.2
+## 10 Ice          2        67.5      24.7
+## 11 Normal      24        70.6      26.6
+## 12 Poison      14        74.4      19.2
+## 13 Psychic     11        79.2      52.9
+## 14 Rock        10        87.5      32.3
+## 15 Water       31        74.2      29.4
+\end{verbatim}
+
+\hypertarget{creating-new-variables}{%
+\subsubsection{Creating new variables}\label{creating-new-variables}}
+
+Often we want to create new columns to our existing dataset. For
+instance, we might want to know the total value of each Pokemon. This
+can easily be calculated using \texttt{mutate()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\OtherTok{\textless{}{-}}\NormalTok{ df }\SpecialCharTok{\%\textgreater{}\%}                               \CommentTok{\# just updating the current dataframe}
+      \FunctionTok{group\_by}\NormalTok{(Name) }\SpecialCharTok{\%\textgreater{}\%}                   \CommentTok{\# We want to calculate the total for each Pokemon}
+      \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Total =} \FunctionTok{sum}\NormalTok{(HP, Attack, Defense, Sp..Atk, Sp..Def, Speed)) }\CommentTok{\# new variable Total}
+
+\CommentTok{\# side note: if you need to ever implement just one dplyr verb, you can do so without pipes!}
+
+\FunctionTok{mutate}\NormalTok{(df, }\AttributeTok{Total =} \FunctionTok{sum}\NormalTok{(HP, Attack, Defense, Sp..Atk, Sp..Def, Speed))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 800 x 13
+## # Groups:   Name [800]
+##       X. Name           Type.1 Type.2    HP Attack Defense Sp..Atk Sp..Def Speed
+##    <int> <chr>          <chr>  <chr>  <int>  <int>   <int>   <int>   <int> <int>
+##  1     1 Bulbasaur      Grass  Poison    45     49      49      65      65    45
+##  2     2 Ivysaur        Grass  Poison    60     62      63      80      80    60
+##  3     3 Venusaur       Grass  Poison    80     82      83     100     100    80
+##  4     3 VenusaurMega ~ Grass  Poison    80    100     123     122     120    80
+##  5     4 Charmander     Fire   <NA>      39     52      43      60      50    65
+##  6     5 Charmeleon     Fire   <NA>      58     64      58      80      65    80
+##  7     6 Charizard      Fire   Flying    78     84      78     109      85   100
+##  8     6 CharizardMega~ Fire   Dragon    78    130     111     130      85   100
+##  9     6 CharizardMega~ Fire   Flying    78    104      78     159     115   100
+## 10     7 Squirtle       Water  <NA>      44     48      65      50      64    43
+## # ... with 790 more rows, and 3 more variables: Generation <int>,
+## #   Legendary <lgl>, Total <int>
+\end{verbatim}
+
+We also can use conditional statements to create new variables based on
+existing columns. Perhaps we want to categorized Pokemon based on
+whether they have greater Defense or Attack stats.
+
+With real datasets we would probably have finer classifications, but
+this is just an example.
+
+Because we have two options (Defensive/Offensive), we can use
+\texttt{mutate()} and \texttt{ifelse()}
+
+We can then choose to only look at Pokemon who are considered Defensive
+using \texttt{filter()}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%} 
+      \FunctionTok{group\_by}\NormalTok{(Name) }\SpecialCharTok{\%\textgreater{}\%}
+      \FunctionTok{mutate}\NormalTok{(}\AttributeTok{DO =} \FunctionTok{ifelse}\NormalTok{(Defense }\SpecialCharTok{\textgreater{}}\NormalTok{ Attack,}\StringTok{"Defensive"}\NormalTok{, }\StringTok{"Offensive"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+      \FunctionTok{filter}\NormalTok{(DO }\SpecialCharTok{==} \StringTok{"Defensive"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 298 x 14
+## # Groups:   Name [298]
+##       X. Name           Type.1 Type.2    HP Attack Defense Sp..Atk Sp..Def Speed
+##    <int> <chr>          <chr>  <chr>  <int>  <int>   <int>   <int>   <int> <int>
+##  1     2 Ivysaur        Grass  Poison    60     62      63      80      80    60
+##  2     3 Venusaur       Grass  Poison    80     82      83     100     100    80
+##  3     3 VenusaurMega ~ Grass  Poison    80    100     123     122     120    80
+##  4     7 Squirtle       Water  <NA>      44     48      65      50      64    43
+##  5     8 Wartortle      Water  <NA>      59     63      80      65      80    58
+##  6     9 Blastoise      Water  <NA>      79     83     100      85     105    78
+##  7     9 BlastoiseMega~ Water  <NA>      79    103     120     135     115    78
+##  8    10 Caterpie       Bug    <NA>      45     30      35      20      20    45
+##  9    11 Metapod        Bug    <NA>      50     20      55      25      25    30
+## 10    12 Butterfree     Bug    Flying    60     45      50      90      80    70
+## # ... with 288 more rows, and 4 more variables: Generation <int>,
+## #   Legendary <lgl>, Total <int>, DO <chr>
+\end{verbatim}
+
+As mentioned before, we can either save the dataframe with these new
+variables, but if we're just grouping to plot, we might not want to.
+Otherwise we might end up with df1, df2, df3\ldots{} Instead, we can
+move straight from using dplyr to plotting with ggplot using a pipe.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{DO =} \FunctionTok{ifelse}\NormalTok{(Defense }\SpecialCharTok{\textgreater{}}\NormalTok{ Attack,}\StringTok{"Defensive"}\NormalTok{, }\StringTok{"Offensive"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(DO }\SpecialCharTok{==} \StringTok{"Defensive"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Defense, }\AttributeTok{y =}\NormalTok{ Attack)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{tidyverse-tutorial_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\hypertarget{ggplot-basics}{%
+\subsubsection{ggplot basics}\label{ggplot-basics}}
+
+\texttt{ggplot()} creates plots in layers
+
+\begin{itemize}
+\item
+  visual items are referred to as \textbf{geoms}, short for geometric
+  objects
+
+  \begin{itemize}
+  \item
+    geoms answer the question of \emph{how} we want to plot our data
+  \item
+    geoms come in many shapes and we can add more than one to our plot
+  \end{itemize}
+\item
+  aesthetics of the plot can be controlled with\ldots{} aesthetics,
+  which are referred to as \textbf{aes}
+
+  \begin{itemize}
+  \item
+    \texttt{aes()} stands for \textbf{aesthetic}, or ``something you can
+    see.'' Each aesthetic used maps a visual cue to a variable
+    (\url{https://beanumber.github.io/sds192/lab-ggplot2.html})
+  \item
+    Can be used to vary colors, shapes, sizes, transparencies\ldots etc
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Some geoms have specific aesthetics that work only for them. You
+      can always check by typing
+      \texttt{?geom\_\textless{}NAME\textgreater{}()} into your command
+      line, replacing \textless NAME\textgreater{} with your geom of
+      choice.
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+ggplot follows the following formula where \textless\textgreater{}
+indicates input from the user:
+
+\begin{verbatim}
+`ggplot(<dataset>, aes(x = <x.variable>, y = <y.variable>)`
+\end{verbatim}
+
+After specifying our dataset, X and Y variables we can tell ggplot
+\emph{how} we want to display the data using a \texttt{geom} command.
+Notice that ggplot does not use pipes, but \texttt{+} as an indicator
+that the next line is included in the plot.
+
+\begin{verbatim}
+    ggplot(<dataset>, aes(x = <x.variable>, y = <y.variable>) +
+      geom_point()
+\end{verbatim}
+
+Basic examples:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Attack, }\AttributeTok{y =}\NormalTok{ Defense)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{tidyverse-tutorial_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Type}\FloatTok{.1}\NormalTok{, }\AttributeTok{y =}\NormalTok{ Attack)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{tidyverse-tutorial_files/figure-latex/unnamed-chunk-8-1.pdf}
+
+Even without aesthetics we can make pretty decent basic plots. But
+aesthetics will help us draw attention to what matters in our
+visualizations.
+
+\hypertarget{heres-where-it-gets-a-teeny-bit-tricky}{%
+\paragraph{Here's where it gets a teeny bit
+tricky\ldots{}}\label{heres-where-it-gets-a-teeny-bit-tricky}}
+
+Aesthetics can belong either inside or outside parentheses and this
+changes what they impact.
+
+\begin{itemize}
+\item
+  Aesthetics placed \textbf{inside} parentheses set the aesthetic based
+  on a variable.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    For example, if we wanted colors to be different for Pokemon types.
+  \end{itemize}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# impact of specifying inside parentheses}
+
+\FunctionTok{ggplot}\NormalTok{(df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Attack, }\AttributeTok{y =}\NormalTok{ Defense)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ Type}\FloatTok{.1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{tidyverse-tutorial_files/figure-latex/unnamed-chunk-9-1.pdf}
+
+\begin{itemize}
+\item
+  Aesthetics placed \textbf{outside} of parentheses set the aesthetic to
+  a specific value
+
+  \begin{itemize}
+  \tightlist
+  \item
+    If we wanted all points to be red instead of the default black.
+  \end{itemize}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# impact of setting outside of parentheses}
+\FunctionTok{ggplot}\NormalTok{(df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Attack, }\AttributeTok{y =}\NormalTok{ Defense)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =} \StringTok{"red"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{tidyverse-tutorial_files/figure-latex/unnamed-chunk-10-1.pdf}
+
+Aesthetics can also be specific to a geom (as shown above), or set
+globally to impact all geoms.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# setting a global aesthetic}
+
+\FunctionTok{ggplot}\NormalTok{(df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Type}\FloatTok{.1}\NormalTok{, }\AttributeTok{y =}\NormalTok{ Attack, }\AttributeTok{color =}\NormalTok{ Type}\FloatTok{.1}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{geom\_jitter}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{tidyverse-tutorial_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+Yikes, that is maybe a bit of an eyesore, but you get the idea.
+Sometimes it's better to set aesthetics to a specific geom instead!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Type}\FloatTok{.1}\NormalTok{, }\AttributeTok{y =}\NormalTok{ Attack)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{geom\_jitter}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ Type}\FloatTok{.1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{tidyverse-tutorial_files/figure-latex/unnamed-chunk-12-1.pdf}
+
+We can take this even further by modifying the plot with \emph{more}
+aesthetics outside of parentheses.
+
+We can manipulate:
+
+\begin{itemize}
+\item
+  transparency using \texttt{alpha}
+\item
+  size using \texttt{size}
+\item
+  type of line used \texttt{linetype}
+\item
+  shape of a point \texttt{point}
+\end{itemize}
+
+And the list continues! Again, you can always check what aesthetics are
+available to specific geom by checking its help page.
+
+For example, we can use the aesthetic \texttt{width} for
+\texttt{geom\_jitter()} (scatterplot) to set the width of the jitter,
+but we would get an error if we tried to use it for
+\texttt{geom\_point()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Type}\FloatTok{.1}\NormalTok{, }\AttributeTok{y =}\NormalTok{ Attack)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{,                     }\CommentTok{\# make boxplots transparent}
+               \AttributeTok{size =} \FloatTok{0.75}\NormalTok{) }\SpecialCharTok{+}                   \CommentTok{\# make outlines a little thicker}
+  \FunctionTok{geom\_jitter}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ Type}\FloatTok{.1}\NormalTok{),}
+              \AttributeTok{width =} \FloatTok{0.25}\NormalTok{,                     }\CommentTok{\# set the width of the jitter}
+              \AttributeTok{size =} \FloatTok{0.5}\NormalTok{)                       }\CommentTok{\# make points smaller than default}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{tidyverse-tutorial_files/figure-latex/unnamed-chunk-13-1.pdf}
+
+\hypertarget{labels}{%
+\paragraph{Labels}\label{labels}}
+
+Labels can be specified pretty easily with the \texttt{lab()} option,
+allowing us to override the default which are just the column names from
+the dataframe.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Type}\FloatTok{.1}\NormalTok{, }\AttributeTok{y =}\NormalTok{ Attack)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{,                     }
+               \AttributeTok{size =} \FloatTok{0.75}\NormalTok{) }\SpecialCharTok{+}                   
+  \FunctionTok{geom\_jitter}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ Type}\FloatTok{.1}\NormalTok{),}
+              \AttributeTok{width =} \FloatTok{0.25}\NormalTok{,                     }
+              \AttributeTok{size =} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Pokemon type"}\NormalTok{,                       }\CommentTok{\# x{-}axis label}
+       \AttributeTok{y =} \StringTok{"Attack statistic"}\NormalTok{,                   }\CommentTok{\# y{-}axis label}
+       \AttributeTok{title =} \StringTok{"Attack stats by Pokemon type"}\NormalTok{)   }\CommentTok{\# plot title}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{tidyverse-tutorial_files/figure-latex/unnamed-chunk-14-1.pdf}
+
+\hypertarget{editing-the-global-theme}{%
+\paragraph{Editing the global theme}\label{editing-the-global-theme}}
+
+There are obviously some unsightly things we should take care of
+
+\begin{itemize}
+\item
+  overlap of x-axis text :(
+\item
+  redundant legend :(
+\item
+  ugly gray default background :(
+\end{itemize}
+
+We can make general changes to the plot by altering the plot's theme.
+Here you can change almost anything you can imagine! If you don't
+believe me, type \texttt{?theme()} and take a look at the list.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Type}\FloatTok{.1}\NormalTok{, }\AttributeTok{y =}\NormalTok{ Attack)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{,                     }
+               \AttributeTok{size =} \FloatTok{0.75}\NormalTok{) }\SpecialCharTok{+}                   
+  \FunctionTok{geom\_jitter}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ Type}\FloatTok{.1}\NormalTok{),}
+              \AttributeTok{width =} \FloatTok{0.25}\NormalTok{,                     }
+              \AttributeTok{size =} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Pokemon type"}\NormalTok{,                       }
+       \AttributeTok{y =} \StringTok{"Attack statistic"}\NormalTok{,                   }
+       \AttributeTok{title =} \StringTok{"Attack stats by Pokemon type"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{panel.background =} \FunctionTok{element\_rect}\NormalTok{(}\AttributeTok{fill =} \StringTok{"white"}\NormalTok{),  }\CommentTok{\# change from unsightly gray to white}
+        \AttributeTok{legend.position =} \StringTok{\textquotesingle{}none\textquotesingle{}}\NormalTok{,                         }\CommentTok{\# begone useless legend!}
+        \AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{)            }\CommentTok{\# put x text on an angle}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{tidyverse-tutorial_files/figure-latex/unnamed-chunk-15-1.pdf}
+
+\hypertarget{putting-dplyr-and-ggplot-together}{%
+\subsubsection{Putting dplyr and ggplot
+together}\label{putting-dplyr-and-ggplot-together}}
+
+Sometimes we need to make specific transformations to our dataframe
+before we're able to plot. One such plot is the stacked bar plot. So
+let's pretend we wanted to visualize how total stat points are broken
+down by Pokemon type.
+
+Steps:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Create a dataframe that includes averages of each stat for each
+  Pokemon type
+\item
+  Transpose the data from wide to long format
+\item
+  Plot!
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 1. create a dataframe of averages}
+
+\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(Type}\FloatTok{.1}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarize}\NormalTok{(}\AttributeTok{Avg.Total =} \FunctionTok{mean}\NormalTok{(Total),}
+            \AttributeTok{Avg.HP =} \FunctionTok{mean}\NormalTok{(HP),}
+            \AttributeTok{Avg.Attack =} \FunctionTok{mean}\NormalTok{(Attack),}
+            \AttributeTok{Avg.Defense =} \FunctionTok{mean}\NormalTok{(Defense),}
+            \AttributeTok{Avg.SpAtk =} \FunctionTok{mean}\NormalTok{(Sp..Atk),}
+            \AttributeTok{Avg.SpDef =} \FunctionTok{mean}\NormalTok{(Sp..Def)) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 18 x 7
+##    Type.1   Avg.Total Avg.HP Avg.Attack Avg.Defense Avg.SpAtk Avg.SpDef
+##  * <chr>        <dbl>  <dbl>      <dbl>       <dbl>     <dbl>     <dbl>
+##  1 Bug           379.   56.9       71.0        70.7      53.9      64.8
+##  2 Dark          446.   66.8       88.4        70.2      74.6      69.5
+##  3 Dragon        551.   83.3      112.         86.4      96.8      88.8
+##  4 Electric      443.   59.8       69.1        66.3      90.0      73.7
+##  5 Fairy         413.   74.1       61.5        65.7      78.5      84.7
+##  6 Fighting      416.   69.9       96.8        65.9      53.1      64.7
+##  7 Fire          458.   69.9       84.8        67.8      89.0      72.2
+##  8 Flying        485    70.8       78.8        66.2      94.2      72.5
+##  9 Ghost         440.   64.4       73.8        81.2      79.3      76.5
+## 10 Grass         421.   67.3       73.2        70.8      77.5      70.4
+## 11 Ground        438.   73.8       95.8        84.8      56.5      62.8
+## 12 Ice           433.   72         72.8        71.4      77.5      76.3
+## 13 Normal        402.   77.3       73.5        59.8      55.8      63.7
+## 14 Poison        399.   67.2       74.7        68.8      60.4      64.4
+## 15 Psychic       476.   70.6       71.5        67.7      98.4      86.3
+## 16 Rock          454.   65.4       92.9       101.       63.3      75.5
+## 17 Steel         488.   65.2       92.7       126.       67.5      80.6
+## 18 Water         430.   72.1       74.2        72.9      74.8      70.5
+\end{verbatim}
+
+Transposing the dataframe uses a new verb we haven't gone over,
+\texttt{gather()} which takes three values:
+
+\begin{itemize}
+\item
+  \textbf{Key:} the name of your new column that will store the old
+  column names
+\item
+  \textbf{Value}: name of new column that will hold all of the old
+  column values
+\item
+  Which columns you'd like to include in the transpose (otherwise it
+  will transpose all!)
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 2. Transpose data from wide to long form}
+
+\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(Type}\FloatTok{.1}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarize}\NormalTok{(}\AttributeTok{Avg.Total =} \FunctionTok{mean}\NormalTok{(Total),}
+            \AttributeTok{Avg.HP =} \FunctionTok{mean}\NormalTok{(HP),}
+            \AttributeTok{Avg.Attack =} \FunctionTok{mean}\NormalTok{(Attack),}
+            \AttributeTok{Avg.Defense =} \FunctionTok{mean}\NormalTok{(Defense),}
+            \AttributeTok{Avg.SpAtk =} \FunctionTok{mean}\NormalTok{(Sp..Atk),}
+            \AttributeTok{Avg.SpDef =} \FunctionTok{mean}\NormalTok{(Sp..Def)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{gather}\NormalTok{(}\AttributeTok{key =} \StringTok{"Stat"}\NormalTok{, }\AttributeTok{value =} \StringTok{"Average"}\NormalTok{, Avg.HP}\SpecialCharTok{:}\NormalTok{Avg.SpDef)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 90 x 4
+##    Type.1   Avg.Total Stat   Average
+##    <chr>        <dbl> <chr>    <dbl>
+##  1 Bug           379. Avg.HP    56.9
+##  2 Dark          446. Avg.HP    66.8
+##  3 Dragon        551. Avg.HP    83.3
+##  4 Electric      443. Avg.HP    59.8
+##  5 Fairy         413. Avg.HP    74.1
+##  6 Fighting      416. Avg.HP    69.9
+##  7 Fire          458. Avg.HP    69.9
+##  8 Flying        485  Avg.HP    70.8
+##  9 Ghost         440. Avg.HP    64.4
+## 10 Grass         421. Avg.HP    67.3
+## # ... with 80 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 3. Make a fancy plot! (this is where we\textquotesingle{}ll use the viridis package)}
+
+\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(Type}\FloatTok{.1}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarize}\NormalTok{(}\AttributeTok{Avg.Total =} \FunctionTok{mean}\NormalTok{(Total),}
+            \AttributeTok{Avg.HP =} \FunctionTok{mean}\NormalTok{(HP),}
+            \AttributeTok{Avg.Attack =} \FunctionTok{mean}\NormalTok{(Attack),}
+            \AttributeTok{Avg.Defense =} \FunctionTok{mean}\NormalTok{(Defense),}
+            \AttributeTok{Avg.SpAtk =} \FunctionTok{mean}\NormalTok{(Sp..Atk),}
+            \AttributeTok{Avg.SpDef =} \FunctionTok{mean}\NormalTok{(Sp..Def)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{gather}\NormalTok{(}\AttributeTok{key =} \StringTok{"Stat"}\NormalTok{, }\AttributeTok{value =} \StringTok{"Average"}\NormalTok{, Avg.HP}\SpecialCharTok{:}\NormalTok{Avg.SpDef) }\SpecialCharTok{\%\textgreater{}\%}  
+  
+  \CommentTok{\# transfer right into ggplot with a pipe !}
+  
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Type}\FloatTok{.1}\NormalTok{, }\AttributeTok{y =}\NormalTok{ Avg.Total, }\AttributeTok{fill =}\NormalTok{ Stat)) }\SpecialCharTok{+}
+  
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{\textquotesingle{}identity\textquotesingle{}}\NormalTok{, }\AttributeTok{color =} \StringTok{\textquotesingle{}black\textquotesingle{}}\NormalTok{) }\SpecialCharTok{+} \CommentTok{\# identity just means no transforms}
+  
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Pokemon Type"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Average total stat points"}\NormalTok{,}
+       \AttributeTok{title =} \StringTok{"Composition of total stats by Pokemon type"}\NormalTok{,}
+       \AttributeTok{fill =} \StringTok{"Stat"}\NormalTok{) }\SpecialCharTok{+}
+  
+  \FunctionTok{coord\_cartesian}\NormalTok{(}\AttributeTok{ylim =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{3000}\NormalTok{)) }\SpecialCharTok{+}          \CommentTok{\# customize plot limits }
+  
+  \FunctionTok{scale\_fill\_viridis}\NormalTok{(}\AttributeTok{discrete =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{+}         \CommentTok{\# our values are not continous}
+  \CommentTok{\# notice we\textquotesingle{}re using scale FILL, because we set the fill aesthetic above}
+  
+  \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{expand =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{)) }\SpecialCharTok{+}         \CommentTok{\# get rid of unsightly gap at [0,0]}
+  
+  \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+}                                  \CommentTok{\# pre{-}set theme that is not so bad}
+  
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{,  }\CommentTok{\# angle x{-}axis text}
+                                   \AttributeTok{hjust =} \DecValTok{1}\NormalTok{))  }\CommentTok{\# slide text down a bit (was peaking into plot)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{tidyverse-tutorial_files/figure-latex/unnamed-chunk-18-1.pdf}
+
+\hypertarget{facet-nating-using-facets}{%
+\paragraph{Facet-nating (Using
+facets)}\label{facet-nating-using-facets}}
+
+Sometimes it's best to display data in subplots, especially when we have
+a lot of different levels to a variable
+
+For instance, there is obviously a relationship between Defense and
+Attack stats, but we're also intermixing 18 groups! We've also seen that
+simply adding colors doesn't help, just too many groups!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Attack, }\AttributeTok{y =}\NormalTok{ Defense)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ Type}\FloatTok{.1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{tidyverse-tutorial_files/figure-latex/unnamed-chunk-19-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Attack, }\AttributeTok{y =}\NormalTok{ Defense)) }\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{Type}\FloatTok{.1}\NormalTok{,                   }\CommentTok{\# select variable to facet by}
+             \AttributeTok{nrow =} \DecValTok{3}\NormalTok{) }\SpecialCharTok{+}                \CommentTok{\# set number of rows of plots}
+  
+  \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{\textquotesingle{}lm\textquotesingle{}}\NormalTok{,             }\CommentTok{\# add line of best fit}
+              \AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{,                }\CommentTok{\# don\textquotesingle{}t include SE ribbon}
+              \AttributeTok{size =} \FloatTok{0.75}\NormalTok{) }\SpecialCharTok{+}             \CommentTok{\# make lines a bit more substantial}
+  
+  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ Type}\FloatTok{.1}\NormalTok{),  }
+             \AttributeTok{size =} \FloatTok{0.65}\NormalTok{,) }\SpecialCharTok{+}
+  
+  \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+} 
+  
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{\textquotesingle{}none\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{tidyverse-tutorial_files/figure-latex/unnamed-chunk-20-1.pdf}
+
+\textsubscript{*}*\textsubscript{*}*\textsubscript{*}*\textsubscript{*}*\textsubscript{*}*\textsubscript{FANCIFY}*\textsubscript{*}*\textsubscript{*}*\textsubscript{*}*\textsubscript{*}*
+
+Let's display all data in each facet, but highlight each group!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df2 }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(df, }\SpecialCharTok{{-}}\NormalTok{Type}\FloatTok{.1}\NormalTok{)                }\CommentTok{\# grab all data besides our normal grouping variable}
+
+\FunctionTok{ggplot}\NormalTok{(df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Attack, }\AttributeTok{y =}\NormalTok{ Defense)) }\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{Type}\FloatTok{.1}\NormalTok{,                   }
+             \AttributeTok{nrow =} \DecValTok{3}\NormalTok{) }\SpecialCharTok{+}
+  
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{data =}\NormalTok{ df2,                  }\CommentTok{\# plot our new df as a big blob of gray}
+             \AttributeTok{color =} \StringTok{"gray"}\NormalTok{,}
+             \AttributeTok{alpha =} \FloatTok{0.35}\NormalTok{,}
+             \AttributeTok{size =} \FloatTok{0.50}\NormalTok{) }\SpecialCharTok{+}
+  
+  \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{\textquotesingle{}lm\textquotesingle{}}\NormalTok{,             }
+              \AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{,               }
+              \AttributeTok{size =} \FloatTok{0.75}\NormalTok{) }\SpecialCharTok{+}
+  
+  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ Type}\FloatTok{.1}\NormalTok{),  }
+             \AttributeTok{size =} \FloatTok{0.65}\NormalTok{,) }\SpecialCharTok{+}
+  
+  \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+} 
+  
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{\textquotesingle{}none\textquotesingle{}}\NormalTok{,           }
+        \AttributeTok{strip.background =} \FunctionTok{element\_blank}\NormalTok{()) }\CommentTok{\# get rid of facet title backgrounds}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{tidyverse-tutorial_files/figure-latex/unnamed-chunk-21-1.pdf}
+
+\hypertarget{saving-your-masterpiece}{%
+\paragraph{Saving your masterpiece}\label{saving-your-masterpiece}}
+
+Plots can be saved by adding a \texttt{ggsave()} command after your plot
+
+\texttt{ggsave(\textquotesingle{}name-of-file.png\textquotesingle{},\ height\ =\ XXX,\ width\ =\ XXX,\ dpi\ =\ XXX)}
+
+\begin{itemize}
+\item
+  You can save as almost any image extension (.png, .jpeg, .tiff, pdf)
+\item
+  Specify dpi (this is handy for publications!
+\item
+  Specify height and width
+\item
+  Specify unit (inches, cm, mm)
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df2 }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(df, }\SpecialCharTok{{-}}\NormalTok{Type}\FloatTok{.1}\NormalTok{)               }
+
+\FunctionTok{ggplot}\NormalTok{(df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Attack, }\AttributeTok{y =}\NormalTok{ Defense)) }\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{Type}\FloatTok{.1}\NormalTok{,                   }
+             \AttributeTok{nrow =} \DecValTok{3}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{data =}\NormalTok{ df2,             }
+             \AttributeTok{color =} \StringTok{"gray"}\NormalTok{,}
+             \AttributeTok{alpha =} \FloatTok{0.35}\NormalTok{,}
+             \AttributeTok{size =} \FloatTok{0.50}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{\textquotesingle{}lm\textquotesingle{}}\NormalTok{,             }
+              \AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{,               }
+              \AttributeTok{size =} \FloatTok{0.75}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ Type}\FloatTok{.1}\NormalTok{),  }
+             \AttributeTok{size =} \FloatTok{0.65}\NormalTok{,) }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{\textquotesingle{}none\textquotesingle{}}\NormalTok{,           }
+        \AttributeTok{strip.background =} \FunctionTok{element\_blank}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{tidyverse-tutorial_files/figure-latex/unnamed-chunk-22-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggsave}\NormalTok{(}\StringTok{"beautiful{-}plot.pdf"}\NormalTok{, }\AttributeTok{dpi =} \DecValTok{600}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Saving 6.5 x 4.5 in image
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+And that's it! Manipulating things in R takes some time to get used to
+and finding the right options for your needs may require some Google
+searching (StackOverflow has saved me many times).
+
+\hypertarget{resources-1}{%
+\subsubsection{Resources}\label{resources-1}}
+
+Here are some resources that I've found useful over the years:
+
+\href{https://colorpalettes.net/category/contrasting-color/}{Color
+Palettes} - contrasting color palettes
+
+\href{https://coolors.co/6a0f49-d741a7-7d83ff-007fff-2d898b-7cb518-12664f-ffa62b-59c3c3-ebebeb}{Coolors}
+- create color palettes, shuffle around colors until you find something
+that works
+
+\href{https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf}{dplyr
+cheat sheet}
+
+\href{https://www.data-imaginist.com/2021/say-goodbye-to-good-taste/}{ggfx}
+- A little late for April Fool's but if you don't think your PI will
+kill you, you can send them a plot with a funny filter
+
+\href{https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf}{ggplot
+cheat sheet} - classic ggplot cheat sheet, hopefully after this tutorial
+it's helpful!
+
+\href{https://www.r-graph-gallery.com}{R graph gallery} - awesome
+plotting examples for almost all types (code included)
+
+\href{https://www.tidyverse.org}{tidyverse website}
+
+\href{https://blog.datawrapper.de/which-color-scale-to-use-in-data-vis/}{Which
+color scale for dataviz?} - great blogpost about choosing color scales
+for different types of vizualization.
+
+The \#tidytuesday hashtag on Twitter (I'm serious!)\\
+
+\end{document}
